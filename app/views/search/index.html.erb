@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<h1>Results:</h1>
+<!-- Display random restaurants here -->
+<div class="container">
+<div class="row">
+<% @restaurant_match.each do | record | %>
+<div class="col-lg-4">
+	<div class="card custom-card">
+		<%= image_tag("restaurant_no_logo.png", width: 200, class: "card-img-top", alt: "logo") %>
+		<!--<img src="image3.jpg" class="card-img-top" alt="Image">-->
+		<div class="card-body">
+			<h5 class="card-title"><%= record.name %></h5>
+ 			<p class="card-text"><%= record.address %></p>
+			<p class="card-text"><%= record.restaurant_category.capitalize %></p>
+			<p class="card-text"><%= record.phone_number %></p>
+		</div>
+	</div>
+</div>
+<% end %>
+<% if @restaurant_match.empty? %>
+	<div class="container">
+	  <div class="row justify-content-center">
+	    <div class="col-md-6">
+	      <div class="cool-box text-center">
+	        <h1 style="color: red;">Not Found</h1>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<% end %>
+</div>
+</div>
+
+  <style>
+    /* Custom CSS for styling the box */
+    .cool-box {
+      background-color: #f8f9fa; /* Light gray background */
+      border: 2px solid #ced4da; /* Gray border */
+      border-radius: 10px; /* Rounded corners */
+      padding: 20px; /* Padding inside the box */
+      margin-top: 50px; /* Margin from the top */
+    }
+  </style>
+</html>

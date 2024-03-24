@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<!-- This part should appear right below the navbar from the layouts/application.html.erb -->
+<nav aria-label="Restaurant Category Selection">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"burger") %>">Burgers</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"pizzeria") %>">Pizzeria</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"greek") %>">Greek</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"mexican") %>">Mexican</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"chinese") %>">Chinese</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"fancy") %>">Fancy</a></li>
+  </ul>
+</nav>
+
+<!-- Display random restaurants here -->
+<div class="container">
+<div class="row">
+<% @random_records.each do | record | %>
+<div class="col-lg-4">
+	<div class="card custom-card">
+		<%= image_tag("restaurant_no_logo.png", width: 200, class: "card-img-top", alt: "logo") %>
+		<!--<img src="image3.jpg" class="card-img-top" alt="Image">-->
+		<div class="card-body">
+			<h5 class="card-title"><%= record.name %></h5>
+ 			<p class="card-text"><%= record.address %></p>
+			<p class="card-text"><%= record.restaurant_category.capitalize %></p>
+			<p class="card-text"><%= record.phone_number %></p>
+		</div>
+	</div>
+</div>
+<% end %>
+</div>
+</div>
+
+
+</html>
