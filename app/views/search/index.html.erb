@@ -7,7 +7,11 @@
 <% @restaurant_match.each do | record | %>
 <div class="col-lg-4">
 	<div class="card custom-card">
-		<%= image_tag("restaurant_no_logo.png", width: 200, class: "card-img-top", alt: "logo") %>
+		<% if record.restaurant_logo != nil %>
+			<%= image_tag(record.restaurant_logo, width: 200, height: 200, class: "card-img-top", alt: "logo") %>
+		<% else %>
+			<%= image_tag("restaurant_no_logo.png", width: 200, height: 200, class: "card-img-top", alt: "logo") %>
+		<% end %>
 		<!--<img src="image3.jpg" class="card-img-top" alt="Image">-->
 		<div class="card-body">
 			<h5 class="card-title"><%= record.name %></h5>
