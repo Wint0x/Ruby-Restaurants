@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <h1>Results:</h1>
-<!-- Display random restaurants here -->
+<!-- Display restaurants here -->
 <div class="container">
 <div class="row">
 <% @restaurant_match.each do | record | %>
 <div class="col-lg-4">
 	<div class="card custom-card">
 		<% if record.restaurant_logo != nil %>
-			<%= image_tag(record.restaurant_logo, width: 200, height: 200, class: "card-img-top", alt: "logo") %>
+			<a href="<%= restaurant_url(id:record.restaurant_id)%>"><%= image_tag(record.restaurant_logo, width: 200, height: 200, class: "card-img-top", alt: "logo") %></a>
 		<% else %>
-			<%= image_tag("restaurant_no_logo.png", width: 200, height: 200, class: "card-img-top", alt: "logo") %>
+			<a href="<%= restaurant_url(id:record.restaurant_id)%>"><%= image_tag("restaurant_no_logo.png", width: 200, height: 200, class: "card-img-top", alt: "logo") %></a>
 		<% end %>
 		<!--<img src="image3.jpg" class="card-img-top" alt="Image">-->
 		<div class="card-body">

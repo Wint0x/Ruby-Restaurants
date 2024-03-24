@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<div class="container">
+		<% record = @restaurant_match %>
+		<% if record == nil %>
+			<div class="container">
+			  <div class="row justify-content-center">
+			    <div class="col-md-6">
+			      <div class="cool-box text-center">
+			        <h1 style="color: red;">Not Found</h1>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+		<% else %>
+			<% if record.restaurant_logo != nil %>
+				<%= image_tag(record.restaurant_logo, width: 30, height: 320, class: "card-img-top", alt: "logo") %>
+			<% else %>
+				<%= image_tag("restaurant_no_logo.png", width: 30, height: 320, class: "card-img-top", alt: "logo") %>
+			<% end %>
+
+			<!-- Restaurant Information -->
+			<div class="row justify-content-center">
+			   	<div class="col-md-5 text-center">
+			   		<br>
+			        <h1> <u><%= record.name %></u></h1>
+			        <h3 style="color:gray;"> <i><%= record.address %></i></h3>
+			        <h5> <%= record.phone_number %></h5>
+			   	</div>
+			</div>
+			<div class="row justify-content-center">
+				<hr>
+				<h1>AVAILABLE TABLES</h1>
+			</div>
+
+		<% end %>
+	</div>
+
+<style>
+    /* Custom CSS for styling the box */
+    .cool-box {
+      background-color: #f8f9fa; /* Light gray background */
+      border: 2px solid #ced4da; /* Gray border */
+      border-radius: 10px; /* Rounded corners */
+      padding: 20px; /* Padding inside the box */
+      margin-top: 50px; /* Margin from the top */
+    }
+</style>
+</body>
+</html>
