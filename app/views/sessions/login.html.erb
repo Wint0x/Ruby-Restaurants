@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>login</title>
 	<%= stylesheet_link_tag "login" %>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -17,7 +18,11 @@
 
     <% flash.each do |type, msg| %>
       <div>
-        <h2 style="color: red;"><u><%= msg %></u></h2>
+        <% if type == "error" or msg == "Wrong username or password!" %>
+          <h2 style="color: red;"><u><%= msg %></u></h2>
+        <% else %>
+          <h2 style="color: green;"><u><%= msg %></u></h2>
+        <% end %>
       </div>
     <% end %>
 
@@ -30,7 +35,7 @@
 
     <!-- Register -->
     <div id="formFooter" style="font-size: 22px;">
-      <span>No account? </span><a class="underlineHover" href="#"><p><strong>Sign up!</strong></p></a>
+      <span>No account? </span><a class="underlineHover" href="<%= new_user_path %>"><p><strong>Sign up!</strong></p></a>
     </div>
 
   </div>
