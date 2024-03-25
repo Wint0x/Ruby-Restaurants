@@ -3,12 +3,12 @@
 <!-- This part should appear right below the navbar from the layouts/application.html.erb -->
 <nav aria-label="Restaurant Category Selection">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="<%= search_url(query:"burger") %>">Burgers</a></li>
-    <li class="page-item"><a class="page-link" href="<%= search_url(query:"pizzeria") %>">Pizzeria</a></li>
-    <li class="page-item"><a class="page-link" href="<%= search_url(query:"greek") %>">Greek</a></li>
-    <li class="page-item"><a class="page-link" href="<%= search_url(query:"mexican") %>">Mexican</a></li>
-    <li class="page-item"><a class="page-link" href="<%= search_url(query:"chinese") %>">Chinese</a></li>
-    <li class="page-item"><a class="page-link" href="<%= search_url(query:"fancy") %>">Fancy</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"burger", category:'1') %>">Burgers</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"pizzeria", category:'1') %>">Pizzeria</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"greek", category:'1') %>">Greek</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"mexican", category:'1') %>">Mexican</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"chinese", category:'1') %>">Chinese</a></li>
+    <li class="page-item"><a class="page-link" href="<%= search_url(query:"fancy", category:'1') %>">Fancy</a></li>
   </ul>
 </nav>
 

@@ -30,9 +30,14 @@
 			        <h5> <%= record.phone_number %></h5>
 			   	</div>
 			</div>
+			<!-- Text based on authentication or not -->
 			<div class="row justify-content-center">
 				<hr>
-				<h1>AVAILABLE TABLES</h1>
+				<% if logged_in? %>
+					<h1>AVAILABLE TABLES</h1>
+				<% else %>
+					<h1 style="color:red;">You have to be logged in in order to view and order a table!</h1>
+				<% end %>
 			</div>
 
 		<% end %>

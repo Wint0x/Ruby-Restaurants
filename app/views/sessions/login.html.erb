@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<%= stylesheet_link_tag "login" %>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <%= image_tag("default.png", id: "icon", alt: "User Icon") %>
+    </div>
+
+    <% flash.each do |type, msg| %>
+      <div>
+        <h2 style="color: red;"><u><%= msg %></u></h2>
+      </div>
+    <% end %>
+
+    <!-- Login Form -->
+    <%= form_tag "/login" do %>
+      <input type="text" id="login" class="fadeIn second" name=<%= :username %> placeholder="username" required>
+      <input type="password" id="password" class="fadeIn third" name=<%= :password %> placeholder="password" required>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    <% end %>
+
+    <!-- Register -->
+    <div id="formFooter" style="font-size: 22px;">
+      <span>No account? </span><a class="underlineHover" href="#"><p><strong>Sign up!</strong></p></a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

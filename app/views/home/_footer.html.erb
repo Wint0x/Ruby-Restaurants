@@ -1,0 +1,35 @@
+<% if not request.url.include? "/login" %>
+
+<br>
+<section class="d-flex flex-column min-vh-100">
+
+  <!-- Footer -->
+  <footer class="text-center text-white mt-auto" style="background-color: #D65246;">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: CTA -->
+      <section class="">
+        <div class="row">
+          <p class="d-flex justify-content-center align-items-center">
+
+            <span class="me-3">Login</span>
+            <button data-mdb-ripple-init type="button" class="btn btn-outline-light btn-rounded">
+              <a href=<%= login_url %>>Log in!</a>
+            </button>
+          </p>
+        </div>
+      </section>
+      <!-- Section: CTA -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2024 Ruby Restaurants
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+<% end %>
+</section>

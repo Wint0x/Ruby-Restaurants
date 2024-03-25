@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_24_160544) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_25_161641) do
   create_table "bookings", primary_key: "booking_id", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "table_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_24_160544) do
     t.string "name", null: false
     t.string "address", null: false
     t.string "phone_number", limit: 15, null: false
-    t.binary "restaurant_logo"
+    t.string "restaurant_logo"
     t.string "restaurant_category", limit: 128
   end
 
@@ -48,6 +48,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_24_160544) do
     t.integer "restaurant_id"
     t.index ["restaurant_id"], name: "restaurant_id"
     t.index ["table_number"], name: "table_number", unique: true
+  end
+
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "bookings", "customers", primary_key: "customer_id", name: "fk_customer"
