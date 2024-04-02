@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_25_161641) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_02_205048) do
   create_table "bookings", primary_key: "booking_id", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "table_id"
@@ -36,6 +36,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_161641) do
     t.string "restaurant_category", limit: 128
   end
 
+  create_table "restaurant_tables", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "restaurants", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,7 +52,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_161641) do
     t.string "description"
     t.integer "restaurant_id"
     t.index ["restaurant_id"], name: "restaurant_id"
-    t.index ["table_number"], name: "table_number", unique: true
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
