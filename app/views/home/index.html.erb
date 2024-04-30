@@ -12,6 +12,17 @@
   </ul>
 </nav>
 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <% flash.each do |key, message| %>
+        <div class="alert alert-<%= key %> alert-dismissible fade show" role="alert">
+          <p style="font-size:25px;"><%= message %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 <!-- Display random restaurants here -->
 <div class="container">
 <div class="row">

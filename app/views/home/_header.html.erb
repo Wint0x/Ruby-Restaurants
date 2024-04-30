@@ -6,7 +6,7 @@
     </a>
 
 
-    <a class="nav-item link-dark ml-auto" href="#"><span>My Bookings</span></a>
+    <%= link_to "My Bookings", bookings_url, class:"nav-item link-dark ml-auto" %>
 
     <%= form_with url: "/search", method: :get, class: "d-flex" do |form| %>
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="<%= :query %>">

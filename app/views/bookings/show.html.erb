@@ -1,0 +1,36 @@
+<h1>Your Bookings</h1>
+
+<% if @bookings.any? %>
+  <ul>
+    <% @bookings.each do |booking| %>
+    <% restaurant = booking.restaurant_table.restaurant %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card" style="width: 35rem;">
+        <div class="card-body">
+          <h5 class="card-title"><strong>Reservation for <u><%= restaurant.name %></u></strong></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Booked At: <%= booking.created_at %></h6>
+          <hr>
+          <p class="card-text">Booked for Date: <%= booking.date %></p>
+          <p class="card-text">Number of guests: <%= booking.number_of_guests %></p>
+          <hr>
+          <%= button_to "Delete", "/", class: "btn btn-danger btn-sm" %>
+
+          <script type="text/javascript">
+            /* IGNORE FOR NOW
+ button_to "Delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: "btn btn-danger btn-sm"
+            */
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+    <br>
+</div>
+
+    <% end %>
+  </ul>
+<% else %>
+  <p>No bookings found.</p>
+<% end %>

@@ -1,0 +1,78 @@
+<!-- views/tables/get.html.erb -->
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <% flash.each do |key, message| %>
+      <div class="alert alert-<%= key %> alert-dismissible fade show" role="alert">
+        <%= message %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if @restaurant == nil or @restaurant_table == nil %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="cool-box text-center">
+        <h1 style="color: red;">Not Found</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% else %>
+<h1><%= @restaurant.name %>'s tables</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Table Number</th>
+            <th>Capacity</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @restaurant_table.table_number %></td>
+            <td><%= @restaurant_table.capacity %></td>
+            <% if not @restaurant_table.available? %>
+              <td style="color: red">Occupied</td>
+            <% else %>
+              <td style="color: green">Available</td> 
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= form_with(model: @booking, url: bookings_path, method: :post, local: true, class:"col-lg-6 offset-lg-3") do |form| %>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :table_id, value: @restaurant_table.table_id %>
+  
+  <div class="form-group">
+    <%= form.label :date, "Select Date" %>
+    <%= form.date_field :date, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :number_of_guests, "Number of Guests" %>
+    <%= form.number_field :number_of_guests, class: "form-control", min: 1, max: @restaurant_table.capacity %>
+  </div>
+
+  <div class="text-center"> 
+    <%= form.submit "Book Table", class: "btn btn-primary", :disabled => false unless not @restaurant_table.available? %>
+  </div>
+
+<% end %>
+
+
+<% end %>

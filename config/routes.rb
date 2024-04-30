@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user_sessions/new'
+  get 'user_sessions/create'
 
   root 'home#index'
   get 'home/about'
@@ -20,6 +22,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  #resources :tables, only: [:show]
+  get '/tables/:restaurant_id/:table_number', to: 'tables#show', as: 'table'
+  resources :bookings, only: [:new, :create]
+  resource :bookings, only: [:show]
 
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
 end

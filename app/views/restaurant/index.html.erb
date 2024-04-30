@@ -15,10 +15,13 @@
 			</div>
 
 		<% else %>
+		<div class="text-center">
 			<% if record.restaurant_logo != nil %>
-				<%= image_tag(record.restaurant_logo, width: 30, height: 320, class: "card-img-top", alt: "logo") %>
+			<!--class: "card-img-top"-->
+				<%= image_tag(record.restaurant_logo, height: 300, alt: "logo") %>
 			<% else %>
-				<%= image_tag("restaurant_no_logo.png", width: 30, height: 320, class: "card-img-top", alt: "logo") %>
+				<%= image_tag("restaurant_no_logo.png", height: 300, alt: "logo") %>
+		</div>
 			<% end %>
 
 			<!-- Restaurant Information -->
@@ -67,7 +70,7 @@
 						              <% if not table.available? %>
 						              	<%= link_to "Unavailable!", "/", class: "btn btn-danger btn-lg disabled" %>
 						              <% else %>
-						              	<%= link_to "Book!", "/", class: "btn btn-secondary btn-lg" %>
+						              	<%= link_to "Book!", table_path(:restaurant_id => @restaurant_match.restaurant_id, :table_number => table.table_number), class: "btn btn-secondary btn-lg" %>
 						              <% end %>
 						            </div>
 						          </li>

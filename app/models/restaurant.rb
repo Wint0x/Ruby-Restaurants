@@ -1,6 +1,7 @@
 class Restaurant < ApplicationRecord
 	self.table_name = "restaurant"
 	self.primary_key = "restaurant_id"
+  	has_many :restaurant_tables, foreign_key: "restaurant_id", dependent: :destroy
 
-	# has_many :tables
+  # Other validations and methods can go here
 end
