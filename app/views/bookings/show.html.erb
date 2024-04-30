@@ -9,7 +9,7 @@
     <div class="col-lg-6">
       <div class="card" style="width: 35rem;">
         <div class="card-body">
-          <h5 class="card-title"><strong>Reservation for <u><%= restaurant.name %></u></strong></h5>
+          <h5 class="card-title"><strong>Reservation for <u><%= restaurant.name %></u> - Table number #<%= booking.restaurant_table.table_number %></strong></h5>
           <h6 class="card-subtitle mb-2 text-muted">Booked At: <%= booking.created_at %></h6>
           <hr>
           <p class="card-text">Booked for Date: <%= booking.date %></p>
