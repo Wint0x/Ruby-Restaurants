@@ -23,7 +23,7 @@ application up and running.
     
 # 🧪 Setup Instructions  
 ```sh  
-git clone [https://github.com/yourusername/restaurant-booking.git  ](https://github.com/Wint0x/Ruby-Restaurants)  
+git clone https://github.com/Wint0x/Ruby-Restaurants  
 cd restaurant-booking  
 bundle install  
 rails db:create db:migrate db:seed  
